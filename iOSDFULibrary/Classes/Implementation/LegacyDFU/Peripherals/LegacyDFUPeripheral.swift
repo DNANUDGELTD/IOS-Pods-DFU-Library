@@ -208,7 +208,8 @@ internal class LegacyDFUPeripheral : BaseCommonDFUPeripheral<LegacyDFUExecutor, 
         // In Legacy DFU the Buttonless service does not increment the device address.
         // However, after sending the first part of the firmware, the device reboots
         // and may use incremented MAC address to receive the second part.
-        newAddressExpected = true
+//        newAddressExpected = true
+        newAddressExpected = false; // KY change this beacuse it will case connect to other band which is on bootloader mode.
         
         dfuService!.sendActivateAndResetRequest(
             // On success, the device gets disconnected and
